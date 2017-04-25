@@ -15,14 +15,17 @@
     };
 
     home.searchNow = function() {
-      var Result = SpotifyDataService.getResults(home.searchQuery.name, home.searchQuery.type, home.searchQuery.limit);
-
-      Result.$promise.then(function(result) {
-        console.log(result);
-      }, function(error) {
+      var Results = SpotifyDataService.getResults(home.searchQuery.name, home.searchQuery.type, home.searchQuery.limit);
+      Results.then(function(results) {
+        console.log(results);
+        home.results = results;
+        home.results['type'] = home.searchQuery.type;
+      })
+      .catch(function(error) {
         console.log(error);
-      });
+      })
     };
+
 
   }
 

@@ -19,12 +19,6 @@
       controllerAs: 'home'
     })
 
-    .state('home.results', {
-      templateUrl: 'src/spotifysearchapp/home.results/results.template.html',
-      controller: 'ResultsController',
-      controllerAs: 'results'
-    })
-
     ;
   }
 
