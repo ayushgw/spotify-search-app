@@ -1,6 +1,6 @@
 (function() {
   'use strict';
 
-  angular.module('SpotifySearchApp', ['ui.router']);
+  angular.module('SpotifySearchApp', ['Data', 'ui.router']);
 
 })();
