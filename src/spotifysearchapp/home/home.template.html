@@ -1,0 +1,72 @@
+<!-- <section class="row" id="searchForm">
+
+<div class="container">
+<form>
+<div class="row form-group">
+<span id="search-icon"><i class="fa fa-search fa-2x" aria-hidden="true"></i></span>
+<input type="text" class="form-control col-centered" id="searchQuery" placeholder="Search for Songs, Artist or Album" ng-model="landing.searchQuery" required>
+</div>
+
+<div class="row text-center" id="custom-radio-buttons">
+<label class="custom-btn">
+<input type="radio" name="toggle" ng-model="landing.searchType" value="track">
+<span>Song</span>
+</label>
+<label class="custom-btn">
+<input type="radio" name="toggle" ng-model="landing.searchType" value="artist">
+<span>Artist</span>
+</label>
+<label class="custom-btn">
+<input type="radio" name="toggle" ng-model="landing.searchType" value="album">
+<span>Album</span>
+</label>
+</div>
+
+<div class="row text-center">
+<button type="submit" class="btn btn-default" ng-click="landing.search(landing.searchType)" id="searchButton">Search</button>
+</div>
+</form>
+
+<div class="container text-center" id="spotifyLogo">
+<br>
+<br>
+<div>Powered By</div>
+<img src="images/spotify.png" alt="Spotify" class="img-responsive center-block">
+</div>
+</div>
+
+
+</section> -->
+
+<div class="column">
+  <form>
+    <div class="row form-group">
+      <span id="search-icon"><i class="fa fa-search fa-2x" aria-hidden="true"></i></span>
+      <input type="text" class="form-control col-centered" id="searchQuery" placeholder="Search for Songs, Artist or Album" ng-model="landing.searchQuery" required>
+    </div>
+
+    <div class="row text-center" id="custom-radio-buttons">
+      <label class="custom-btn">
+        <input type="radio" name="toggle" ng-model="landing.searchType" value="track">
+        <span>Song</span>
+      </label>
+      <label class="custom-btn">
+        <input type="radio" name="toggle" ng-model="landing.searchType" value="artist">
+        <span>Artist</span>
+      </label>
+      <label class="custom-btn">
+        <input type="radio" name="toggle" ng-model="landing.searchType" value="album">
+        <span>Album</span>
+      </label>
+    </div>
+
+    <div class="row text-center">
+      <button type="submit" class="btn btn-default" ng-click="landing.search(landing.searchType)" id="searchButton">Search</button>
+    </div>
+  </form>
+
+  <div class="container text-center" id="spotifyLogo">
+    <div>Powered By</div>
+    <img src="src/spotifysearchapp/home/images/spotify.png" alt="Spotify" class="img-responsive center-block">
+  </div>
+</div>
