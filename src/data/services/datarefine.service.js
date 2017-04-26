@@ -83,7 +83,7 @@
           var err = 'Something is not right!';
           deferred.reject(err);
         }
-      }, 2000);
+      }, 3000);
       //
       //
       return deferred.promise;

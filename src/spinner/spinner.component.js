@@ -10,33 +10,24 @@
   SpinnerController.$inject = ['$rootScope'];
   function SpinnerController($rootScope) {
     var $ctrl = this;
-    var cancellers = [];
+    
+    $ctrl.showSpinner = true;
 
-    $ctrl.$onInit = function () {
-      var cancel = $rootScope.$on('$stateChangeStart',
-      function(event, toState, toParams, fromState, fromParams, options){
-        $rootScope.showSpinner = true;
-      });
-      cancellers.push(cancel);
-
-      cancel = $rootScope.$on('$stateChangeSuccess',
-      function(event, toState, toParams, fromState, fromParams){
-        $rootScope.showSpinner = false;
-      });
-      cancellers.push(cancel);
-
-      cancel = $rootScope.$on('$stateChangeError',
-      function(event, toState, toParams, fromState, fromParams, error){
-        $rootScope.showSpinner = false;
-      });
-      cancellers.push(cancel);
-    };
-
-    $ctrl.$onDestroy = function () {
-      cancellers.forEach(function (item) {
-        item();
-      });
-    };
+    // $ctrl.$onInit = function () {
+    //   var cancel = $rootScope.$on('spinner',
+    //   function(event, status){
+    //     if(status.msg == 'on') {
+    //       $ctrl.showSpinner = true;
+    //     }
+    //     else if (status.msg == 'off') {
+    //       $ctrl.showSpinner = false;
+    //     }
+    //   });
+    // };
+    //
+    // $ctrl.$onDestroy = function () {
+    //   cancel();
+    // };
   }
 
 })();

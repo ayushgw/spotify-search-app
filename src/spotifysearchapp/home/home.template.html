@@ -49,22 +49,25 @@
 
 </section>
 
-<section id="results_section" ng-if="home.results">
+<section id="results_section" ng-if="home.resultsFlag">
 
   <!-- Loading Spinner -->
-  <spinner></spinner>
+  <spinner ng-show="home.spinnerFlag"></spinner>
 
-  <!-- Filter -->
-  <div class="row form-group filter_wrap">
-    <div class="col-md-offset-9 col-md-3">
-      <span id="filter_icon"><i class="fa fa-search fa-1x" aria-hidden="true"></i></span>
-      <input type="text" class="form-control" id="filter_song" placeholder="Filter" ng-model="home.filter">
+  <!-- Results View -->
+  <div ng-show="!home.spinnerFlag">
+    <!-- Filter -->
+    <div class="row form-group filter_wrap">
+      <div class="col-md-offset-9 col-md-3">
+        <span id="filter_icon"><i class="fa fa-search fa-1x" aria-hidden="true"></i></span>
+        <input type="text" class="form-control" id="filter_song" placeholder="Filter" ng-model="home.filter">
+      </div>
     </div>
-  </div>
 
-  <!-- Results -->
-  <track-grid data="home.results" filter="home.filter" ng-if="home.results['type'] == 'track'"></track-grid>
-  <artist-grid data="home.results" filter="home.filter" ng-if="home.results['type'] == 'artist'"></artist-grid>
-  <album-grid data="home.results" filter="home.filter" ng-if="home.results['type'] == 'album'"></album-grid>
+    <!-- Results -->
+    <track-grid data="home.results" filter="home.filter" ng-if="home.results['type'] == 'track'"></track-grid>
+    <artist-grid data="home.results" filter="home.filter" ng-if="home.results['type'] == 'artist'"></artist-grid>
+    <album-grid data="home.results" filter="home.filter" ng-if="home.results['type'] == 'album'"></album-grid>
+  </div>
 
 </section>
