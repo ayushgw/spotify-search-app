@@ -15,9 +15,10 @@
     var results = Results.get();
     var refinedResults = results.$promise.then(function(data) {
       return DataRefineService.refineData(data, type);
-    })
+    });
 
     return refinedResults;
+
   };
 }
 

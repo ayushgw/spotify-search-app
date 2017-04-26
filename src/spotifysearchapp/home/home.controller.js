@@ -4,8 +4,8 @@
   angular.module('SpotifySearchApp')
   .controller('HomeController', HomeController);
 
-  HomeController.$inject = ['SpotifyDataService'];
-  function HomeController(SpotifyDataService) {
+  HomeController.$inject = ['SpotifyDataService', '$document'];
+  function HomeController(SpotifyDataService, $document) {
     var home = this;
 
     home.searchQuery = {
@@ -20,6 +20,9 @@
         console.log(results);
         home.results = results;
         home.results['type'] = home.searchQuery.type;
+
+        // Smooth Scroll To Results
+        $document.scrollTo( 0, 700, [1000] );
       })
       .catch(function(error) {
         console.log(error);
