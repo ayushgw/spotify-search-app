@@ -1,6 +1,6 @@
 (function() {
   'use strict';
 
-  angular.module('Data', ['ngResource']);
+  angular.module('Data', ['ngResource', 'angularUtils.directives.dirPagination']);
 
 })();

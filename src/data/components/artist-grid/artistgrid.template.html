@@ -1,1 +1,52 @@
-<h2>Show Artists below</h2>
+<div id="artist-grid">
+  <div class="row text-left sort">
+    <div>Sort by:</div>
+    <div>
+      <a href="" ng-click="$ctrl.sortType = 'followers'; $ctrl.sortReverse = !$ctrl.sortReverse">
+        Name
+        <span ng-show="$ctrl.sortType == 'followers' && !$ctrl.sortReverse" class="smooth fa fa-arrow-down"></span>
+        <span ng-show="$ctrl.sortType == 'followers' && $ctrl.sortReverse" class="smooth fa fa-arrow-up"></span>
+      </a>
+    </div>
+    <div>
+      <a href="" ng-click="$ctrl.sortType = 'popularity'; $ctrl.sortReverse = !$ctrl.sortReverse">
+        Type
+        <span ng-show="$ctrl.sortType == 'popularity' && !$ctrl.sortReverse" class="smooth fa fa-arrow-down"></span>
+        <span ng-show="$ctrl.sortType == 'popularity' && $ctrl.sortReverse" class="smooth fa fa-arrow-up"></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="row container-fluid text-center">
+    <div class="col-md-4 text-center artist-card" dir-paginate="artist in $ctrl.data | orderBy:$ctrl.sortType:$ctrl.sortReverse | filter:$ctrl.filter | itemsPerPage:6">
+
+      <div class="artist-cover vcenter">
+        <div class="artist-text">
+          <div>
+            <span ng-repeat="genre in artist.genres | limitTo:4">{{genre}}<span>,</span> &nbsp;</span>
+          </div>
+          <br><br><br>
+          <div>
+            Followers: {{artist.followers}}
+            <br>
+            Popularity: {{artist.popularity}}%
+          </div>
+        </div>
+      </div>
+      <div>
+        <img class="img-circle" ng-src="{{artist.logo}}" height="250px" width="250px">
+      </div>
+      <div class="artist-name">
+        {{artist.artist}}
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <dir-pagination-controls
+    max-size=""
+    direction-links="true"
+    boundary-links="true"></dir-pagination-controls>
+  </div>
+
+</div>

@@ -1,1 +1,86 @@
-<h2>Show tracks below</h2>
+<!-- Filter -->
+<!-- <div class="row form-group">
+  <div class="col-md-offset-9 col-md-3">
+    <span id="filter_icon"><i class="fa fa-search fa-1x" aria-hidden="true"></i></span>
+    <input type="text" class="form-control" id="filter_song" placeholder="Filter" ng-model="$ctrl.filter">
+  </div>
+</div> -->
+
+<div id="song-grid">
+  <table class="table">
+    <thead>
+      <tr class="row no-overflow">
+        <td class="col-md-1"></td>
+        <td class="col-md-3">
+          <a href="" ng-click="$ctrl.sortType = 'track'; $ctrl.sortReverse = !$ctrl.sortReverse">
+            Track
+            <span ng-show="$ctrl.sortType == 'track' && !$ctrl.sortReverse" class="smooth fa fa-arrow-down"></span>
+            <span ng-show="$ctrl.sortType == 'track' && $ctrl.sortReverse" class="smooth fa fa-arrow-up"></span>
+          </a>
+        </td>
+        <td class="col-md-2">
+          <a href="" ng-click="$ctrl.sortType = 'artist'; $ctrl.sortReverse = !$ctrl.sortReverse">
+            Artist
+            <span ng-show="$ctrl.sortType == 'artist' && !$ctrl.sortReverse" class="smooth fa fa-arrow-down"></span>
+            <span ng-show="$ctrl.sortType == 'artist' && $ctrl.sortReverse" class="smooth fa fa-arrow-up"></span>
+          </a>
+        </td>
+        <td class="col-md-3">
+          <a href="" ng-click="$ctrl.sortType = 'album'; $ctrl.sortReverse = !$ctrl.sortReverse">
+            Album
+            <span ng-show="$ctrl.sortType == 'album' && !$ctrl.sortReverse" class="smooth fa fa-arrow-down"></span>
+            <span ng-show="$ctrl.sortType == 'album' && $ctrl.sortReverse" class="smooth fa fa-arrow-up"></span>
+          </a>
+        </td>
+        <td class="col-md-1 text-center">
+          <a href="" ng-click="$ctrl.sortType = 'duration'; $ctrl.sortReverse = !$ctrl.sortReverse">
+            Time
+            <span ng-show="$ctrl.sortType == 'duration' && !$ctrl.sortReverse" class="smooth fa fa-arrow-down"></span>
+            <span ng-show="$ctrl.sortType == 'duration' && $ctrl.sortReverse" class="smooth fa fa-arrow-up"></span>
+          </a>
+        </td>
+        <td class="col-md-2 text-center">
+          <a href="" ng-click="$ctrl.sortType = 'popularity'; $ctrl.sortReverse = !$ctrl.sortReverse">
+            Popularity
+            <span ng-show="$ctrl.sortType == 'popularity' && !$ctrl.sortReverse" class="smooth fa fa-arrow-down"></span>
+            <span ng-show="$ctrl.sortType == 'popularity' && $ctrl.sortReverse" class="smooth fa fa-arrow-up"></span>
+          </a>
+        </td>
+      </tr>
+    </thead>
+
+    <tbody ng-init="tooltip=false">
+      <tr ng-mouseenter="showButton = true" ng-mouseleave="showButton = false" class="row no-overflow" dir-paginate="song in $ctrl.data | orderBy:$ctrl.sortType:$ctrl.sortReverse | filter:$ctrl.filter | itemsPerPage:10">
+        <td class="text-right">
+          <a href="" title="preview" data-toggle="tooltip" data-placement="left" tooltip ng-if="showButton" ng-show="$ctrl.isPlaying != song.index" ng-click="$ctrl.play(song.preview, song.index)">
+            <img src="src/data/images/play.png">
+          </a>
+          <a href="" ng-if="showButton" ng-show="$ctrl.isPlaying == song.index" ng-click="$ctrl.pause(song.index,0)">
+            <img src="src/data/images/pause.png">
+          </a>
+          <span ng-if="!showButton && $ctrl.isPlaying == song.index">
+            <img src="src/data/images/playing.gif">
+          </span>
+        </td>
+        <td>
+          <img ng-src="{{song.logo}}" class="img-responsive img-circle img-logo">
+          <span>{{song.track}}</span>
+        </td>
+        <td>{{song.artist}}</td>
+        <td>{{song.album}}</td>
+        <td class="text-center">{{song.duration}}</td>
+        <td class="text-center">
+          <img src="src/data/images/flame.png">&nbsp;
+          {{song.popularity}}%
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="text-center">
+    <dir-pagination-controls
+    max-size=""
+    direction-links="true"
+    boundary-links="true"></dir-pagination-controls>
+  </div>
+</div>

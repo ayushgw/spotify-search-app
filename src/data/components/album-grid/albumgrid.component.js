@@ -6,7 +6,8 @@
     templateUrl: 'src/data/components/album-grid/albumgrid.template.html',
     controller: AlbumGridController,
     bindings: {
-      data: '<'
+      data: '<',
+      filter: '='
     }
   });
 

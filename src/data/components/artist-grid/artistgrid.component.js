@@ -6,13 +6,15 @@
     templateUrl: 'src/data/components/artist-grid/artistgrid.template.html',
     controller: ArtistGridController,
     bindings: {
-      data: '<'
+      data: '<',
+      filter: '='
     }
   });
 
   function ArtistGridController() {
     var $ctrl = this;
 
+    
   }
 
 })();

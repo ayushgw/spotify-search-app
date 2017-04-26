@@ -1,1 +1,31 @@
-<h2>Show albums below</h2>
+<div id="album-grid">
+  <div class="row container-fluid text-center">
+    <div class="col-md-3 text-center album-card" dir-paginate="album in $ctrl.data | orderBy:$ctrl.sortType:$ctrl.sortReverse | filter:$ctrl.filter | itemsPerPage:12">
+
+      <div class="album-cover vcenter">
+        <div class="album-text">
+          <div>
+            Album Type: {{album.type}}
+          </div>
+          <div>
+            Artists: <span ng-repeat="artist in album.artist">{{artist.name}}<span>,</span> &nbsp;</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <img ng-src="{{album.logo}}" height="180" width="160">
+      </div>
+      <div class="album-name">
+        {{album.name}}
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <dir-pagination-controls
+    max-size=""
+    direction-links="true"
+    boundary-links="true"></dir-pagination-controls>
+  </div>
+
+</div>
