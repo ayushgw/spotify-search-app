@@ -14,6 +14,7 @@ html, body {
 .row {
   margin: 0;
 }
+
 /*---- Home ----*/
 .canvas_wrap {
   position: relative;
@@ -26,27 +27,25 @@ html, body {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 5;
   background: #121242;
   background: -webkit-linear-gradient(-45deg,#121242,#ff5a72);
   background: linear-gradient(135deg,#121242,#ff5a72);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#121242',endColorstr='#ff5a72',GradientType=1);
-  opacity: .7;
+  opacity: .5;
+}
+.canvas_desktop_bg {
+  position: absolute;
+  height: 100vh;
+  z-index: 500;
 }
 .canvas {
-  position: relative;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-image: url('home/images/background.jpg');
+  position: absolute;
+  z-index: 999;
   min-height: 100vh;
 }
-@media (max-width:768px) {
-  .canvas {
-    background-size: 250%;
-    background-position: bottom left 40%;
-  }
-}
+
+
+
 header {
   z-index: 10;
   width: 100%;
@@ -73,7 +72,7 @@ header {
   padding: 20px;
   text-align: center;
   position: absolute;
-  top: 32%;
+  top: 25%;
   left: 4%;
 }
 
@@ -200,8 +199,8 @@ input[type='text']#search_query:-moz-placeholder {
 /*************************/
 #results_section {
   background: #E1E7ED;
-  padding-top: 50px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   min-height: 100vh;
 }
 .filter_wrap {
@@ -269,137 +268,137 @@ thead {
   font-weight: 400;
 }
 
-  thead a {
-    text-decoration: none;
-    color: #77ADD6;
-  }
+thead a {
+  text-decoration: none;
+  color: #77ADD6;
+}
 
-    thead a:hover {
-      text-decoration: none; }
+thead a:hover {
+  text-decoration: none; }
 
-      thead a:focus {
-        text-decoration: none; }
+  thead a:focus {
+    text-decoration: none; }
 
-        tr:hover {
-          background-color: #E8EEF4; }
+    tr:hover {
+      background-color: #E8EEF4; }
 
-          .img-logo {
-            float: left;
-            margin-right: 10px;
-            height: 25px;
-            width: 25px; }
+      .img-logo {
+        float: left;
+        margin-right: 10px;
+        height: 25px;
+        width: 25px; }
 
-            .no-overflow {
-              overflow: hidden; }
+        .no-overflow {
+          overflow: hidden; }
 
-              .tooltip.left .tooltip-arrow {
-                border-left-color: #77ADD6; }
+          .tooltip.left .tooltip-arrow {
+            border-left-color: #77ADD6; }
 
-                .tooltip-inner {
-                  color: white;
-                  background-color: #77ADD6;
-                  border-radius: 4px; }
+            .tooltip-inner {
+              color: white;
+              background-color: #77ADD6;
+              border-radius: 4px; }
 
-                  .album-cover {
-                    position: absolute;
-                    left: 63px;
-                    z-index: 20;
-                    width: 160px;
-                    height: 180px;
-                    background: rgba(0, 0, 0, 0.7);
-                    opacity: 0;
-                    border-radius: 10px;
-                    transition: opacity 0.4s ease-out; }
+              .album-cover {
+                position: absolute;
+                left: 63px;
+                z-index: 20;
+                width: 160px;
+                height: 180px;
+                background: rgba(0, 0, 0, 0.7);
+                opacity: 0;
+                border-radius: 10px;
+                transition: opacity 0.4s ease-out; }
 
-                    .album-cover:hover {
-                      opacity: 0.9; }
+                .album-cover:hover {
+                  opacity: 0.9; }
 
-                      .album-card {
-                        margin-bottom: 40px;
-                        overflow: hidden; }
+                  .album-card {
+                    margin-bottom: 40px;
+                    overflow: hidden; }
 
-                        .album-text {
-                          vertical-align: bottom;
-                          opacity: 1;
-                          z-index: 30;
-                          color: white;
+                    .album-text {
+                      vertical-align: bottom;
+                      opacity: 1;
+                      z-index: 30;
+                      color: white;
+                      font-size: 15px;
+                      text-transform: uppercase;
+                      font-weight: 500; }
+                      .album-text div span:last-child span {
+                        display: none; }
+
+                        .album-name {
+                          margin-top: 10px;
                           font-size: 15px;
-                          text-transform: uppercase;
-                          font-weight: 500; }
-                          .album-text div span:last-child span {
-                            display: none; }
+                          letter-spacing: 1px;
+                          height: 40px; }
 
-                            .album-name {
-                              margin-top: 10px;
-                              font-size: 15px;
-                              letter-spacing: 1px;
-                              height: 40px; }
+                          .vcenter {
+                            display: flex;
+                            align-items: center;
+                            /* Align the flex-items vertically */
+                            justify-content: center; }
 
-                              .vcenter {
-                                display: flex;
-                                align-items: center;
-                                /* Align the flex-items vertically */
-                                justify-content: center; }
+                            .artist-card {
+                              margin-bottom: 2em;
+                              padding-left: 1em; }
+                              .artist-card img {
+                                height: 250px; }
 
-                                .artist-card {
-                                  margin-bottom: 2em;
-                                  padding-left: 1em; }
-                                  .artist-card img {
-                                    height: 250px; }
+                                .artist-cover {
+                                  position: absolute;
+                                  left: 86px;
+                                  z-index: 20;
+                                  width: 250px;
+                                  height: 250px;
+                                  background: rgba(0, 0, 0, 0.7);
+                                  opacity: 0;
+                                  border-radius: 10px;
+                                  transition: opacity 0.4s ease-out;
+                                  padding: 20px; }
 
-                                    .artist-cover {
-                                      position: absolute;
-                                      left: 86px;
-                                      z-index: 20;
-                                      width: 250px;
-                                      height: 250px;
-                                      background: rgba(0, 0, 0, 0.7);
-                                      opacity: 0;
-                                      border-radius: 10px;
-                                      transition: opacity 0.4s ease-out;
-                                      padding: 20px; }
+                                  .artist-cover:hover {
+                                    opacity: 0.9; }
 
-                                      .artist-cover:hover {
-                                        opacity: 0.9; }
+                                    .artist-text {
+                                      vertical-align: bottom;
+                                      opacity: 1;
+                                      z-index: 30;
+                                      color: white;
+                                      font-size: 15px;
+                                      text-transform: uppercase;
+                                      font-weight: 500; }
+                                      .artist-text div span:last-child span {
+                                        display: none; }
 
-                                        .artist-text {
-                                          vertical-align: bottom;
-                                          opacity: 1;
-                                          z-index: 30;
-                                          color: white;
-                                          font-size: 15px;
-                                          text-transform: uppercase;
-                                          font-weight: 500; }
-                                          .artist-text div span:last-child span {
-                                            display: none; }
+                                        .artist-text div:first-child {
+                                          font-weight: 700; }
 
-                                            .artist-text div:first-child {
-                                              font-weight: 700; }
+                                          .artist-name {
+                                            margin-top: 10px;
+                                            font-size: 15px;
+                                            letter-spacing: 1px;
+                                            height: 40px; }
 
-                                              .artist-name {
-                                                margin-top: 10px;
-                                                font-size: 15px;
-                                                letter-spacing: 1px;
-                                                height: 40px; }
+                                            .sort {
+                                              margin-bottom: 1em;
+                                              font-size: 15px;
+                                              text-transform: uppercase;
+                                              position: relative;
+                                              top: -4em;
+                                              padding-left: 150px;
+                                              text-decoration: none; }
 
-                                                .sort {
-                                                  margin-bottom: 1em;
-                                                  font-size: 15px;
-                                                  text-transform: uppercase;
-                                                  position: relative;
-                                                  top: -4em;
-                                                  padding-left: 150px;
+                                              .sort a {
+                                                text-decoration: none; }
+
+                                                .sort a:hover {
                                                   text-decoration: none; }
 
-                                                  .sort a {
-                                                    text-decoration: none; }
+                                                  .sort > div {
+                                                    margin-left: 25px;
+                                                    float: left; }
 
-                                                    .sort a:hover {
-                                                      text-decoration: none; }
-
-                                                      .sort > div {
-                                                        margin-left: 25px;
-                                                        float: left; }
-
-                                                        .smooth {
-                                                          margin-left: 5px; }
+                                                    .smooth {
+                                                      margin-left: 5px; }

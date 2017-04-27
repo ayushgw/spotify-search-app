@@ -4,9 +4,19 @@
   angular.module('SpotifySearchApp')
   .controller('HomeController', HomeController);
 
-  HomeController.$inject = ['SpotifyDataService', '$document', '$rootScope'];
-  function HomeController(SpotifyDataService, $document, $rootScope) {
+  HomeController.$inject = ['SpotifyDataService', '$document', '$rootScope', '$window'];
+  function HomeController(SpotifyDataService, $document, $rootScope, $window) {
     var home = this;
+
+    // check for smaller screens
+    home.isSmallScreen = false;
+    console.log($window.innerWidth);
+    var screenWidth = $window.innerWidth;
+    if (screenWidth < 768){
+      home.isSmallScreen = true;
+    }
+
+    console.log(home.isSmallScreen);
 
     home.searchQuery = {
       name: '',
@@ -21,11 +31,10 @@
       // $rootScope.$broadcast('spinner', { msg: 'on' });
 
       // Smooth Scroll To Results
-      $document.scrollTo( 0, 700, [1000] );
+      $document.scrollTo( 0, 750, [1000] );
 
       var Results = SpotifyDataService.getResults(home.searchQuery.name, home.searchQuery.type, home.searchQuery.limit);
       Results.then(function(results) {
-        console.log(results);
         home.results = results;
         home.results['type'] = home.searchQuery.type;
 
