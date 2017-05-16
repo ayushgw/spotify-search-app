@@ -10,13 +10,10 @@
 
     // check for smaller screens
     home.isSmallScreen = false;
-    console.log($window.innerWidth);
     var screenWidth = $window.innerWidth;
     if (screenWidth < 768){
       home.isSmallScreen = true;
     }
-
-    console.log(home.isSmallScreen);
 
     home.searchQuery = {
       name: '',

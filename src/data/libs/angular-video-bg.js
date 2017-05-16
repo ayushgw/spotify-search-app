@@ -328,7 +328,6 @@
                         duration = player.getDuration();
                     }
                     msDuration = duration * 1000;
-                    console.log('duration', msDuration);
                     videoTimeout = setTimeout(function() {
                         if (scope.playlist) {
                             player.nextVideo();
