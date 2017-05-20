@@ -4,8 +4,8 @@
   angular.module('SpotifySearchApp')
   .config(RoutesConfig);
 
-  RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
-  function RoutesConfig($stateProvider, $urlRouterProvider) {
+  RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+  function RoutesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $urlRouterProvider.otherwise('/');
 
@@ -20,6 +20,8 @@
     })
 
     ;
+
+    $locationProvider.html5Mode(true).hashPrefix('!');
   }
 
 })();
