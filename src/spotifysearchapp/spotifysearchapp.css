@@ -257,6 +257,10 @@ input[type='text']#filter_song:-moz-placeholder {
   font-weight: 300;
 }
 
+.results_error {
+  text-align: center;
+  margin: 5% 0;
+}
 
 /*------ Components CSS ------*/
 /******************************/

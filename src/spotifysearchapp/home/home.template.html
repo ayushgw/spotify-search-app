@@ -2,13 +2,13 @@
 
   <div class="canvas_wrap">
 
-    <video-bg class="hidden-xs" video-id="'zH9sXggRlxc'" ratio="16/9" loop="true" mute="true"></video-bg>
+    <!-- <video-bg class="hidden-xs" video-id="'zH9sXggRlxc'" ratio="16/9" loop="true" mute="true"></video-bg> -->
 
     <div class="canvas">
       <div class="canvas_cover"></div>
 
       <div class="column" id="search_content">
-        
+
         <div class="container">
           <form>
             <div class="row form-group input_box">
@@ -57,7 +57,7 @@
   <!-- Results View -->
   <div ng-show="!home.spinnerFlag">
     <!-- Filter -->
-    <div class="row form-group filter_wrap">
+    <div class="row form-group filter_wrap" ng-show="home.results.length">
       <div class="col-md-offset-9 col-md-3">
         <span id="filter_icon"><i class="fa fa-search fa-1x" aria-hidden="true"></i></span>
         <input type="text" class="form-control" id="filter_song" placeholder="Filter" ng-model="home.filter">
@@ -65,6 +65,10 @@
     </div>
 
     <!-- Results -->
+    <div class="results_error" ng-show="!home.results.length">
+      <img src="src/spotifysearchapp/home/images/circle.png" alt="">
+      Sorry, no data could be found!
+    </div>
     <track-grid data="home.results" filter="home.filter" ng-if="home.results['type'] == 'track'"></track-grid>
     <artist-grid data="home.results" filter="home.filter" ng-if="home.results['type'] == 'artist'"></artist-grid>
     <album-grid data="home.results" filter="home.filter" ng-if="home.results['type'] == 'album'"></album-grid>

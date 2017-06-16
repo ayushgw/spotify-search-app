@@ -21,11 +21,9 @@
       limit: 50
     };
 
-    // var element = angular.element(document.getElementById('results_section'));
     home.searchNow = function() {
       home.resultsFlag = true;
       home.spinnerFlag = true;
-      // $rootScope.$broadcast('spinner', { msg: 'on' });
 
       // Smooth Scroll To Results
       $document.scrollTo( 0, 750, [1000] );
@@ -34,15 +32,13 @@
       Results.then(function(results) {
         home.results = results;
         home.results['type'] = home.searchQuery.type;
-
         home.spinnerFlag = false;
-        // $rootScope.$broadcast('spinner', { msg: 'off' });
       })
       .catch(function(error) {
+        home.spinnerFlag = false;
         console.log(error);
-      })
+      });
     };
-
 
   }
 
